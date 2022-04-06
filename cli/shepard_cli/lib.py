@@ -467,6 +467,7 @@ def deploy(account_number,role_to_assume_to_target_account,path_to_docker_folder
 
     print('pushing ECR to target container named ' +ecr_repo_to_push_to+'...')
     try:
+        ###THIS ACCOUNT NUMBER SEEMS TO CONTAIN A TOKEN, NOT A 12 DIGIT AWS ACCOUNT NUMBER - NEED TO TRACK DOWN WHY
         push_to_ecr(account_number,role_to_assume_to_target_account,ecr_repo_to_push_to,path_to_docker_folder,dont_assume,mfa_token,serial_number)
     except Exception as error:
         traceback.print_tb(error.__traceback__)
